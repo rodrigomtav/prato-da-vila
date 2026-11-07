@@ -1,0 +1,5 @@
+<resources>
+    <!-- Idioma padrão: inglês (boa prática vista na aula "Conceitos básicos") -->
+    <string name="app_name">Prato da Vila</string>
+    <string name="main_welcome">Welcome to Prato da Vila!</string>
+</resources>

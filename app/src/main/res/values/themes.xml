@@ -1,0 +1,7 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Tema base. As cores da marca serão definidas na Etapa 1. -->
+    <style name="Base.Theme.PratoDaVila" parent="Theme.Material3.DayNight.NoActionBar">
+    </style>
+
+    <style name="Theme.PratoDaVila" parent="Base.Theme.PratoDaVila" />
+</resources>
