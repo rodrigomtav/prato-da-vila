@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
+    // KSP: processa as anotações do Room (@Entity, @Dao, @Database) e gera o código do banco
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -43,6 +45,15 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.material)
+
+    // RF01 / RNF01: listagem com RecyclerView
+    implementation(libs.androidx.recyclerview)
+
+    // RF04: persistência local com Room
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
