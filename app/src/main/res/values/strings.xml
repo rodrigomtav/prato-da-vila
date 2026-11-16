@@ -1,5 +1,49 @@
 <resources>
-    <!-- Idioma padrão: inglês (boa prática vista na aula "Conceitos básicos") -->
     <string name="app_name">Prato da Vila</string>
-    <string name="main_welcome">Welcome to Prato da Vila!</string>
+
+    <!-- Acessibilidade -->
+    <string name="cd_logo">Prato da Vila logo</string>
+    <string name="cd_dish_image">Dish photo</string>
+
+    <!-- Lista de pratos -->
+    <string name="list_title">Our menu</string>
+    <string name="list_empty_title">Your menu is empty</string>
+    <string name="list_empty_message">Tap the + button to add your first dish.</string>
+    <string name="btn_add_dish">Add dish</string>
+
+    <!-- Detalhes do prato -->
+    <string name="detail_title">Dish details</string>
+    <string name="btn_share">Share</string>
+    <string name="btn_edit">Edit</string>
+    <string name="share_chooser_title">Share dish with…</string>
+    <!-- %1$s = nome, %2$s = preço, %3$s = descrição -->
+    <string name="share_text">%1$s - %2$s\n%3$s\n\nOrder at Prato da Vila!</string>
+
+    <!-- Cadastro / edição de prato -->
+    <string name="form_title_new">New dish</string>
+    <string name="form_title_edit">Edit dish</string>
+    <string name="form_hint_name">Dish name</string>
+    <string name="form_hint_description">Description</string>
+    <string name="form_hint_price">Price</string>
+    <string name="btn_select_image">Choose photo</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_delete">Delete</string>
+
+    <!-- Validações do form -->
+    <string name="error_empty_name">Enter the dish name</string>
+    <string name="error_empty_description">Enter a description</string>
+    <string name="error_invalid_price">Enter a valid price</string>
+    <string name="error_no_image">Choose a photo for the dish</string>
+
+    <!-- TOASTs -->
+    <string name="msg_dish_saved">Dish added</string>
+    <string name="msg_dish_updated">Dish updated</string>
+    <string name="msg_dish_deleted">Dish deleted</string>
+
+    <!-- Diálogo de exclusão -->
+    <string name="dialog_delete_title">Delete dish?</string>
+    <!-- %1$s = nome do prato -->
+    <string name="dialog_delete_message">\"%1$s\" will be removed from your menu.</string>
+    <string name="dialog_confirm">Delete</string>
+    <string name="dialog_cancel">Cancel</string>
 </resources>

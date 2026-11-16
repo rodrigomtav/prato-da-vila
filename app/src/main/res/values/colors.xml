@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Paleta TEMA CLARO
+    Cores base: vinho #661616, mostarda #DF961A e creme #FFF3DE (docs/design/paleta_cores.png).
+-->
+
+<resources>
+    <!-- Cor principal: botões e destaques -->
+    <color name="primary">#661616</color>
+    <color name="on_primary">#FFFFFF</color>
+
+    <!-- Container principal: barra superior (toolbar) -->
+    <color name="primary_container">#661616</color>
+    <color name="on_primary_container">#FFF3DE</color>
+
+    <!-- Cor secundária: mostarda (ações de destaque, como "+ Novo prato") -->
+    <color name="secondary">#DF961A</color>
+    <color name="on_secondary">#2B1B00</color>
+    <color name="secondary_container">#FFDDB0</color>
+    <color name="on_secondary_container">#2B1B00</color>
+
+    <!-- Fundo da tela e superfícies (cards, diálogos) -->
+    <color name="background">#FFF3DE</color>
+    <color name="on_background">#2B1A14</color>
+    <color name="surface">#FFFAF1</color>
+    <color name="on_surface">#2B1A14</color>
+    <color name="surface_variant">#F3DFD2</color>
+    <color name="on_surface_variant">#53433E</color>
+    <color name="outline">#85736D</color>
+
+    <!-- Erros (validação de formulário) -->
+    <color name="error">#B3261E</color>
+    <color name="on_error">#FFFFFF</color>
+
+    <!-- Fundo do ícone do app -->
+    <color name="ic_launcher_background">#DF961A</color>
+</resources>

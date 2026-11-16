@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">Prato da Vila</string>
-    <string name="main_welcome">Bem-vindo ao Prato da Vila!</string>
+
+    <!-- Acessibilidade -->
+    <string name="cd_logo">Logo do Prato da Vila</string>
+    <string name="cd_dish_image">Foto do prato</string>
+
+    <!-- Lista de pratos -->
+    <string name="list_title">Nosso cardápio</string>
+    <string name="list_empty_title">Seu cardápio está vazio</string>
+    <string name="list_empty_message">Toque no botão + para adicionar o primeiro prato.</string>
+    <string name="btn_add_dish">Adicionar prato</string>
+
+    <!-- Detalhes do prato -->
+    <string name="detail_title">Detalhes do prato</string>
+    <string name="btn_share">Compartilhar</string>
+    <string name="btn_edit">Editar</string>
+    <string name="share_chooser_title">Compartilhar prato com…</string>
+    <!-- %1$s = nome, %2$s = preço, %3$s = descrição -->
+    <string name="share_text">%1$s - %2$s\n%3$s\n\nPeça no Prato da Vila!</string>
+
+    <!-- Cadastro / edição de prato -->
+    <string name="form_title_new">Novo prato</string>
+    <string name="form_title_edit">Editar prato</string>
+    <string name="form_hint_name">Nome do prato</string>
+    <string name="form_hint_description">Descrição</string>
+    <string name="form_hint_price">Preço</string>
+    <string name="btn_select_image">Escolher foto</string>
+    <string name="btn_save">Salvar</string>
+    <string name="btn_delete">Excluir</string>
+
+    <!-- Validações do form -->
+    <string name="error_empty_name">Informe o nome do prato</string>
+    <string name="error_empty_description">Informe uma descrição</string>
+    <string name="error_invalid_price">Informe um preço válido</string>
+    <string name="error_no_image">Escolha uma foto para o prato</string>
+
+    <!-- TOASTs -->
+    <string name="msg_dish_saved">Prato adicionado</string>
+    <string name="msg_dish_updated">Prato atualizado</string>
+    <string name="msg_dish_deleted">Prato excluído</string>
+
+    <!-- Diálogo de exclusão -->
+    <string name="dialog_delete_title">Excluir prato?</string>
+    <!-- %1$s = nome do prato -->
+    <string name="dialog_delete_message">\"%1$s\" será removido do seu cardápio.</string>
+    <string name="dialog_confirm">Excluir</string>
+    <string name="dialog_cancel">Cancelar</string>
 </resources>

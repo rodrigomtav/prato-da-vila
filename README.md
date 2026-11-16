@@ -58,14 +58,14 @@ br.edu.ifsp.pratodavila
 ## Design
 (Em desenvolvimento, ajustes pendentes)
 # Paleta de cores
-![paleta de cores](/app/src/main/res/drawable/paleta_cores.png)
+![paleta de cores](/docs/design/paleta_cores.png)
 # Logo
-![logo](/app/src/main/res/drawable/logo1_cor1.png)
+![logo](/docs/design/logo2_cor1.png)
 # Logo alternativo
-![logo alternativo](/app/src/main/res/drawable/logo2_cor1.png)
+![logo alternativo](/docs/design/logo1_cor1.png)
 # Ícones
-![icone1_cor1](/app/src/main/res/drawable/Ic_mini_cor1.png)
-![1c2_cor1](/app/src/main/res/drawable/ic2_cor1.png)
+![ic_mini_cor1](/docs/design/ic_mini_cor1.png)
+![ic2_cor1](/docs/design/ic2_cor1.png)
 
 
 # Instruções de instalação e uso

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Paleta TEMA ESCURO.
+
+-->
+<resources>
+    <!-- Cor principal: botões e destaques -->
+    <color name="primary">#FFB4A9</color>
+    <color name="on_primary">#561E19</color>
+
+    <!-- Container principal: barra superior (toolbar) -->
+    <color name="primary_container">#4A0F10</color>
+    <color name="on_primary_container">#FFDAD5</color>
+
+    <!-- Cor secundária: mostarda (ações de destaque) -->
+    <color name="secondary">#F5B851</color>
+    <color name="on_secondary">#3F2800</color>
+    <color name="secondary_container">#6B4A00</color>
+    <color name="on_secondary_container">#FFDDB0</color>
+
+    <!-- Fundo da tela e superfícies (cards, diálogos) -->
+    <color name="background">#1F1A17</color>
+    <color name="on_background">#EEE0D6</color>
+    <color name="surface">#2A2320</color>
+    <color name="on_surface">#EEE0D6</color>
+    <color name="surface_variant">#53433E</color>
+    <color name="on_surface_variant">#D8C2BB</color>
+    <color name="outline">#A08C86</color>
+
+    <!-- Erros (validação de formulário) -->
+    <color name="error">#FFB4AB</color>
+    <color name="on_error">#690005</color>
+</resources>
