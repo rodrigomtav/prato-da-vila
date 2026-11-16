@@ -29,8 +29,8 @@ Pendente (serão adicionadas ao final do desenvolvimento).
 Em desenvolvimento.
 
 - [x] Etapa 0 – Estrutura inicial do projeto
-- [-] Etapa 1 – Identidade visual (cores, temas claro/escuro, logo) e textos em pt-BR/inglês
-- [ ] Etapa 2 – Banco de dados local com Room
+- [x] Etapa 1 – Identidade visual (cores, temas claro/escuro, logo) e textos em pt-BR/inglês
+- [-] Etapa 2 – Banco de dados local com Room
 - [ ] Etapa 3 – Listagem de pratos com RecyclerView
 - [ ] Etapa 4 – Tela de detalhes e compartilhamento (Intent implícita)
 - [ ] Etapa 5 – Cadastro: inserir, editar e excluir pratos com imagem
@@ -54,6 +54,19 @@ br.edu.ifsp.pratodavila
     data -> banco de dados Room (entidade, DAO, database)
     adapter -> adapter da RecyclerView
 ```
+
+## Design
+(Em desenvolvimento, ajustes pendentes)
+# Paleta de cores
+![paleta de cores](/app/src/main/res/drawable/paleta_cores.png)
+# Logo
+![logo](/app/src/main/res/drawable/logo1_cor1.png)
+# Logo alternativo
+![logo alternativo](/app/src/main/res/drawable/logo2_cor1.png)
+# Ícones
+![icone1_cor1](/app/src/main/res/drawable/Ic_mini_cor1.png)
+![1c2_cor1](/app/src/main/res/drawable/ic2_cor1.png)
+
 
 # Instruções de instalação e uso
 Pendente.
