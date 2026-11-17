@@ -30,8 +30,8 @@ Em desenvolvimento.
 
 - [x] Etapa 0 – Estrutura inicial do projeto
 - [x] Etapa 1 – Identidade visual (cores, temas claro/escuro, logo) e textos em pt-BR/inglês
-- [-] Etapa 2 – Banco de dados local com Room
-- [ ] Etapa 3 – Listagem de pratos com RecyclerView
+- [x] Etapa 2 – Banco de dados local com Room
+- [-] Etapa 3 – Listagem de pratos com RecyclerView
 - [ ] Etapa 4 – Tela de detalhes e compartilhamento (Intent implícita)
 - [ ] Etapa 5 – Cadastro: inserir, editar e excluir pratos com imagem
 - [ ] Etapa 6 – Testes, revisão e documentação final
@@ -50,7 +50,6 @@ Em desenvolvimento.
 ```
 br.edu.ifsp.pratodavila
     ui -> telas (Activities)
-    model -> classes de dados
     data -> banco de dados Room (entidade, DAO, database)
     adapter -> adapter da RecyclerView
 ```
@@ -72,7 +71,10 @@ br.edu.ifsp.pratodavila
 Pendente.
 
 # Aprendizado e Desafios
-(Em desenvolvimento)
+- Utilização do Room para database
+- Uso de coroutines com suspend
+- Implantação de Singleton para o banco de dados
+- Erro de build do KSP: Tive um problema com as versões, tendo que atualizar o KSP da versão 2.3.0 para a 2.3.14
 
 # Melhorias futuras
 Funcionalidades que ficaram fora do escopo desta versão:

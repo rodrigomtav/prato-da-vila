@@ -8,7 +8,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import br.edu.ifsp.pratodavila.data.AppDatabase
+import br.edu.ifsp.pratodavila.data.Prato
 import br.edu.ifsp.pratodavila.databinding.ActivityMainBinding
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate call")
 
         setupViews()
+        //testarBanco()
     }
 
     private fun setupViews() {
@@ -36,4 +41,16 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
+
+    /*
+    private fun testarBanco() {
+        val tag = "TesteBanco"
+        val dao = AppDatabase.getInstance(this).pratoDao()
+
+        lifecycleScope.launch {
+            Log.d(tag, "1) Pratos no início: ${dao.listarTodos().size}")
+            dao.listarTodos().forEach { Log.d(tag, "   - ${it.id}: ${it.nome}") }
+            Log.d(tag, "3) Pratos no fim: ${dao.listarTodos().size}")
+        }
+    }*/
 }

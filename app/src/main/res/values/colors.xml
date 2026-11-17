@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     Paleta TEMA CLARO
-    Cores base: vinho #661616, mostarda #DF961A e creme #FFF3DE (docs/design/paleta_cores.png).
+    Cores base: vinho #661616, mostarda #DF961A e creme #FFF3DE.
 -->
 
 <resources>
@@ -9,11 +9,11 @@
     <color name="primary">#661616</color>
     <color name="on_primary">#FFFFFF</color>
 
-    <!-- Container principal: barra superior (toolbar) -->
+    <!-- Container principal: barra superior -->
     <color name="primary_container">#661616</color>
     <color name="on_primary_container">#FFF3DE</color>
 
-    <!-- Cor secundária: mostarda (ações de destaque, como "+ Novo prato") -->
+    <!-- Cor secundária: mostarda (ações de destaque) -->
     <color name="secondary">#DF961A</color>
     <color name="on_secondary">#2B1B00</color>
     <color name="secondary_container">#FFDDB0</color>
