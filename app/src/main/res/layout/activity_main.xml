@@ -60,6 +60,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_pratos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:clipToPadding="false"
+        android:paddingBottom="88dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_list_title"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_prato" />
+
     <!-- aparece quando não há pratos cadastrados -->
     <ImageView
         android:id="@+id/iv_empty"

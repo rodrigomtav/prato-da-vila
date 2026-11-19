@@ -3,14 +3,17 @@ package br.edu.ifsp.pratodavila.ui
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import br.edu.ifsp.pratodavila.adapter.PratoAdapter
 import br.edu.ifsp.pratodavila.data.AppDatabase
-import br.edu.ifsp.pratodavila.data.Prato
 import br.edu.ifsp.pratodavila.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
 
@@ -19,8 +22,8 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val TAG = "MainActivity"
     }
-
     private lateinit var binding: ActivityMainBinding
+    private lateinit var adapter: PratoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT))
@@ -30,7 +33,13 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate call")
 
         setupViews()
-        //testarBanco()
+    }
+
+    //tive que usar o onResume pra atualizar a tela automaticamente quando criar o prato em outra tela, o que não daria certo com o onCreate
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume call")
+        carregarPratos()
     }
 
     private fun setupViews() {
@@ -40,17 +49,29 @@ class MainActivity : AppCompatActivity() {
             binding.toolbar.setPadding(0, systemBars.top, 0, 0)
             insets
         }
+
+
+        adapter = PratoAdapter(emptyList()) { prato ->
+            Toast.makeText(this, prato.nome, Toast.LENGTH_SHORT).show()
+        }
+
+        binding.rvPratos.layoutManager = LinearLayoutManager(this) //define a lista vertical
+        binding.rvPratos.adapter = adapter //liga os dados à tela
     }
 
-    /*
-    private fun testarBanco() {
-        val tag = "TesteBanco"
+    private fun carregarPratos() {
         val dao = AppDatabase.getInstance(this).pratoDao()
 
+        //preciso usar o lifecycle por que a função do dao é suspend
         lifecycleScope.launch {
-            Log.d(tag, "1) Pratos no início: ${dao.listarTodos().size}")
-            dao.listarTodos().forEach { Log.d(tag, "   - ${it.id}: ${it.nome}") }
-            Log.d(tag, "3) Pratos no fim: ${dao.listarTodos().size}")
+            val pratos = dao.listarTodos()
+            adapter.atualizar(pratos)
+
+            val vazio = if (pratos.isEmpty()) View.VISIBLE else View.GONE
+            binding.ivEmpty.visibility = vazio
+            binding.tvEmptyTitle.visibility = vazio
+            binding.tvEmptyMessage.visibility = vazio
+            binding.rvPratos.visibility = if (pratos.isEmpty()) View.GONE else View.VISIBLE
         }
-    }*/
+    }
 }

@@ -5,9 +5,6 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 @Database (entities = [Prato::class], version = 1, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
@@ -22,9 +19,9 @@ abstract class AppDatabase: RoomDatabase() {
         // quem quiser o banco chama essa função
         fun getInstance(context: Context): AppDatabase {
 
-            // Se o banco ainda NÃO foi criado...
+            // Se o banco ainda NÃO foi criado
             if (INSTANCE == null) {
-                // ...cria agora e guarda na variável
+                //cria agora e guarda na variável
                 INSTANCE = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
@@ -32,28 +29,28 @@ abstract class AppDatabase: RoomDatabase() {
                 ).addCallback(object : RoomDatabase.Callback() { //criei o callback para popular o bd com os pratos iniciais
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
-                        CoroutineScope(Dispatchers.IO).launch{ //como as funções do DAO são suspend, precisei usar esse coroutine para executá-las, já que aqui não tem activity
-                            val dao = getInstance(context).pratoDao()
-                            dao.inserir(Prato(nome = "Açaí completo",
-                                descricao = "Açaí cremoso com banana, granola e leite condensado, aprox 800Ml",
-                                preco = 21.9,
-                                imagemUri = "android.resource://br.edu.ifsp.pratodavila/drawable/img_prato_acai"))
+                        // insere direto com SQL (sem coroutine) para os pratos já existirem na primeira consulta
+                        val sql = "INSERT INTO pratos (nome, descricao, preco, imagemUri) VALUES (?, ?, ?, ?)"
 
-                            dao.inserir(Prato(nome = "Prato do dia",
-                                descricao = "Prato do dia: Arroz com açafrão, creme de carne seca com requeijão",
-                                preco = 29.99,
-                                imagemUri = "android.resource://br.edu.ifsp.pratodavila/drawable/img_prato_prato_do_dia"))
+                        db.execSQL(sql, arrayOf("Açaí completo",
+                            "Açaí cremoso com banana, granola e leite condensado, aprox 800Ml",
+                            21.9,
+                            "android.resource://br.edu.ifsp.pratodavila/drawable/img_prato_acai"))
 
-                            dao.inserir(Prato(nome = "Tutu de feijão",
-                                descricao = "Tutu de feijão com calabresa, torresmo e couve.",
-                                preco = 18.99,
-                                imagemUri = "android.resource://br.edu.ifsp.pratodavila/drawable/img_prato_tutu_de_feijao"))
+                        db.execSQL(sql, arrayOf("Prato do dia",
+                            "Prato do dia: Arroz com açafrão, creme de carne seca com requeijão",
+                            29.99,
+                            "android.resource://br.edu.ifsp.pratodavila/drawable/img_prato_prato_do_dia"))
 
-                            dao.inserir(Prato(nome = "Filé de peixe empanado",
-                                descricao = "Porção de filé de peixe empanado, acompanha molho tártaro. Aprox 400g",
-                                preco = 20.00,
-                                imagemUri = "android.resource://br.edu.ifsp.pratodavila/drawable/img_prato_file_de_peixe_empanado"))
-                        }
+                        db.execSQL(sql, arrayOf("Tutu de feijão",
+                            "Tutu de feijão com calabresa, torresmo e couve.",
+                            18.99,
+                            "android.resource://br.edu.ifsp.pratodavila/drawable/img_prato_tutu_de_feijao"))
+
+                        db.execSQL(sql, arrayOf("Filé de peixe empanado",
+                            "Porção de filé de peixe empanado, acompanha molho tártaro. Aprox 400g",
+                            20.00,
+                            "android.resource://br.edu.ifsp.pratodavila/drawable/img_prato_file_de_peixe_empanado"))
                     }
                 }).build()
             }
