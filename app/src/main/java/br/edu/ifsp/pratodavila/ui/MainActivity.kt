@@ -1,10 +1,10 @@
 package br.edu.ifsp.pratodavila.ui
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -51,8 +51,11 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        // Intent explícita: abre o detalhe levando só o id do prato
         adapter = PratoAdapter(emptyList()) { prato ->
-            Toast.makeText(this, prato.nome, Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, DetalhePratoActivity::class.java)
+            intent.putExtra(DetalhePratoActivity.EXTRA_PRATO_ID, prato.id)
+            startActivity(intent)
         }
 
         binding.rvPratos.layoutManager = LinearLayoutManager(this) //define a lista vertical

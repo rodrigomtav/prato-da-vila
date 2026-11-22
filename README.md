@@ -32,8 +32,8 @@ Em desenvolvimento.
 - [x] Etapa 1 – Identidade visual (cores, temas claro/escuro, logo) e textos em pt-BR/inglês
 - [x] Etapa 2 – Banco de dados local com Room
 - [x] Etapa 3 – Listagem de pratos com RecyclerView
-- [-] Etapa 4 – Tela de detalhes e compartilhamento (Intent implícita)
-- [ ] Etapa 5 – Cadastro: inserir, editar e excluir pratos com imagem
+- [x] Etapa 4 – Tela de detalhes e compartilhamento (Intent implícita)
+- [-] Etapa 5 – Cadastro: inserir, editar e excluir pratos com imagem
 - [ ] Etapa 6 – Testes, revisão e documentação final
 
 # Tecnologias utilizadas
@@ -78,6 +78,7 @@ Pendente.
 - RecyclerView com adapter próprio e ViewHolder, que reaproveita as linhas ao rolar a lista (diferente da ListView vista em aula)
 - Carregamento da lista no onResume, para atualizar ao voltar de outra tela
 - Pratos de exemplo não apareciam na primeira abertura: a inserção rodava em paralelo (coroutine) e terminava depois da primeira consulta. Resolvi inserindo direto com SQL (execSQL) no callback de criação do banco
+- Utilização de intents implícitas e explícitas
 
 # Melhorias futuras
 Funcionalidades que ficaram fora do escopo desta versão:
