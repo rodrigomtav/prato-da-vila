@@ -23,7 +23,7 @@ class DetalhePratoActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "DetalhePratoActivity"
-        const val EXTRA_PRATO_ID = "extra_prato_id" // chave usada pela MainActivity para enviar o id
+        const val EXTRA_PRATO_ID = "extra_prato_id" // id do prato a exibir
     }
 
     private lateinit var binding: ActivityDetalhePratoBinding
@@ -48,6 +48,15 @@ class DetalhePratoActivity : AppCompatActivity() {
     }
 
     private fun setupViews() {
+        binding.btnEdit.setOnClickListener {
+            val p = prato
+            if (p != null) {
+                val intent = Intent(this, CadastroActivity::class.java)
+                intent.putExtra(CadastroActivity.EXTRA_PRATO_ID, p.id)
+                startActivity(intent)
+            }
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, 0, systemBars.right, systemBars.bottom)
@@ -65,26 +74,27 @@ class DetalhePratoActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             val encontrado = dao.buscarPorId(id)
-            if (encontrado == null) { // id inválido ou prato excluído: volta para a lista
-                finish()
-                return@launch
+            if (encontrado != null) {
+                prato = encontrado
+                binding.tvNome.text = encontrado.nome
+                binding.tvPreco.text = formatoMoeda.format(encontrado.preco)
+                binding.tvDescricao.text = encontrado.descricao
+                binding.ivPrato.setImageURI(Uri.parse(encontrado.imagemUri))
+            } else {
+                finish() // id inválido ou prato excluído: volta para a lista
             }
-            prato = encontrado
-            binding.tvNome.text = encontrado.nome
-            binding.tvPreco.text = formatoMoeda.format(encontrado.preco)
-            binding.tvDescricao.text = encontrado.descricao
-            binding.ivPrato.setImageURI(Uri.parse(encontrado.imagemUri))
         }
     }
 
     // Intent implícita: o Android mostra os apps que aceitam texto
     private fun compartilhar() {
-        val p = prato ?: return
-        val texto = getString(R.string.share_text, p.nome, formatoMoeda.format(p.preco), p.descricao)
-
-        val intent = Intent(Intent.ACTION_SEND)
-        intent.type = "text/plain"
-        intent.putExtra(Intent.EXTRA_TEXT, texto)
-        startActivity(Intent.createChooser(intent, getString(R.string.share_chooser_title)))
+        val p = prato
+        if (p != null) {
+            val texto = getString(R.string.share_text, p.nome, formatoMoeda.format(p.preco), p.descricao)
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "text/plain"
+            intent.putExtra(Intent.EXTRA_TEXT, texto)
+            startActivity(Intent.createChooser(intent, getString(R.string.share_chooser_title)))
+        }
     }
 }

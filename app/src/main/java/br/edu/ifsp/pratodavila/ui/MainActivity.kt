@@ -43,11 +43,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViews() {
+        binding.fabAddDish.setOnClickListener {
+            startActivity(Intent(this, CadastroActivity::class.java))
+        }
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, 0, systemBars.right, systemBars.bottom)
             binding.toolbar.setPadding(0, systemBars.top, 0, 0)
             insets
+
         }
 
 

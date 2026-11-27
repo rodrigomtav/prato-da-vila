@@ -33,8 +33,8 @@ Em desenvolvimento.
 - [x] Etapa 2 – Banco de dados local com Room
 - [x] Etapa 3 – Listagem de pratos com RecyclerView
 - [x] Etapa 4 – Tela de detalhes e compartilhamento (Intent implícita)
-- [-] Etapa 5 – Cadastro: inserir, editar e excluir pratos com imagem
-- [ ] Etapa 6 – Testes, revisão e documentação final
+- [x] Etapa 5 – Cadastro: inserir, editar e excluir pratos com imagem
+- [-] Etapa 6 – Testes, revisão e documentação final
 
 # Tecnologias utilizadas
 - Kotlin, Android Studio (layouts em XML)
@@ -45,6 +45,8 @@ Em desenvolvimento.
 - Room + KSP (persistência local; imagem salva como URI em texto)
 - Material 3 (tema claro/escuro seguindo o sistema)
 - Internacionalização: inglês (padrão) e português (pt-BR)
+- Photo Picker do Android
+- Material Components (TextInputLayout, MaterialAlertDialog)
 
 ### Organização do código
 ```
@@ -79,6 +81,11 @@ Pendente.
 - Carregamento da lista no onResume, para atualizar ao voltar de outra tela
 - Pratos de exemplo não apareciam na primeira abertura: a inserção rodava em paralelo (coroutine) e terminava depois da primeira consulta. Resolvi inserindo direto com SQL (execSQL) no callback de criação do banco
 - Utilização de intents implícitas e explícitas
+- Uma mesma tela de cadastro para inserir e editar: se recebe um id pela Intent, abre em modo edição; sem id, cadastra um prato novo
+- Photo Picker para escolher a imagem da galeria, com permissão persistente da URI (takePersistableUriPermission) para a foto continuar aparecendo depois de reiniciar o aparelho
+- Dados do formulário carregados no onCreate (e não no onResume), para não apagar o que o usuário digitou ao voltar da galeria
+- Validação dos campos com TextInputLayout (mensagem de erro no próprio campo) e conversão do preço digitado com vírgula
+- Ajuste da tela quando o teclado abre (insets do ime)
 
 # Melhorias futuras
 Funcionalidades que ficaram fora do escopo desta versão:
